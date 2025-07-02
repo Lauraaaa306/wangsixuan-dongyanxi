@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wang & Dong - Our Story</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #1e1e2f;
+      color: #f0e7dc;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #2a2a40;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4cbbd;
+    }
+
+    section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  min-height: 100vh;
+  border-bottom: 1px solid #444;
+}
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #d4cbbd;
+    }
+
+    .event, .letter, .entry {
+      margin-bottom: 30px;
+      border-left: 4px solid #aaa;
+      padding-left: 20px;
+    }
+
+    .event-date, .letter-to, .entry-date {
+      font-weight: bold;
+      color: #cfc6bb;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+
+    .caption {
+      font-size: 0.9em;
+      color: #d4cbbd;
+      text-align: center;
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    audio {
+      width: 200px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#welcome">Welcome</a>
+  <a href="#timeline">Our Story</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#countdown">Countdown</a>
+</nav>
+
+<section id="welcome">
+  <h1>Wang Sixuan & Dong Yanxi</h1>
+  <p class="quote">“人生几何，能够得到知己”</p>
+</section>
+
+<section id="timeline">
+  <h2>Our Story</h2>
+  <div class="event"><p class="event-date">August 18, 2020</p><p>我们的相遇 The day we first met.</p></div>
+  <div class="event"><p class="event-date">July 17, 2022</p><p>我们第一次见面 Our first meeting.</p></div>
+  <div class="event"><p class="event-date">August 13, 2023</p><p>我们第二次见面 Our second meeting.</p></div>
+  <div class="event"><p class="event-date">February 17, 2024</p><p>我们第三次见面 Our third meeting.</p></div>
+</section>
+
+<section id="gallery">
+  <h2>Our Photo Gallery</h2>
+  <div class="gallery">
+    <div><img src="photo1.jpg" alt="Memory 1 回忆1"/><div class="caption">I love you.</div></div>
+    <div><img src="photo2.jpg" alt="Memory 2 回忆2"/><div class="caption">I love you.</div></div>
+    <div><img src="photo3.jpg" alt="Memory 3 回忆3"/><div class="caption">I love you.</div></div>
+    <div><img src="photo4.jpg" alt="Memory 4 回忆4"/><div class="caption">I love you.</div></div>
+    <div><img src="photo5.jpg" alt="Memory 5 回忆5"/><div class="caption">I love you.</div></div>
+    <div><img src="photo6.jpg" alt="Memory 6 回忆6"/><div class="caption">I love you.</div></div>
+  </div>
+</section>
+
+<section id="countdown">
+  <h2>Countdown to Our Anniversary</h2>
+  <p id="countdown-text" class="quote"></p>
+</section>
+
+<div class="music-player">
+  <audio controls autoplay loop>
+    <source src="wzzhn.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  const targetDate = new Date("2020-08-18T00:00:00");
+  const countdownText = document.getElementById("countdown-text");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) {
+      countdownText.innerText = "我们的第五年";
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    countdownText.innerText = `${days} days left until our next celebration 💫离我们下个纪念日还有{days}`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000 * 60 * 60);
+</script>
+
+</body>
+</html>s
